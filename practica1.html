@@ -1,0 +1,39 @@
+<!doctype html>	
+<!-- Practica #1 WebGL
+	Pagina basica de carga de apps en webgl
+-->
+
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Plantilla WEbGL</title>
+	<style>
+		body{ background-color: white; margin: 0px; overflow: hidden; }
+		canvas{ background-color: grey; }
+	</style>
+</head>
+<body onload="main()">
+	<canvas id="canvas" width="400" height="300">
+		El navegador no soporta el canvas HTML5
+	</canvas>
+
+	<!-- Bibliotecas -->
+	<script src="lib/webgl-utils.js"></script>
+	<script src="lib/webgl-debug.js"></script>
+	<script src="lib/cuon-utils.js"></script>
+	<script src="lib/cuon-matrix.js"></script>
+    
+	<!-- Mi aplicacion -->
+	<!-- Aqui podrian ir los shaders para recuperar despues con 
+		innerHTML -->
+    <!-- Cargar el codigo de los shaders con jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        vertex_shader_url = 'shaders/vsP1.glsl';
+        fragment_shader_url = 'shaders/fsP1.glsl';    
+    </script>
+	<script src="js/ClickarPuntos.js "></script>
+  
+
+</body>
+</html>
