@@ -3,11 +3,12 @@ var renderer, scene, camera;
 var controles;
 var keyboard;
 
+
 function init() {
     // Configurar el motor de render
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(new THREE.Color(0x0000AA));
+    renderer.setClearColor(new THREE.Color(0xFFFFAA));
     renderer.shadowMap.enabled = true;
     document.getElementById('container').appendChild(renderer.domElement);
 
@@ -18,8 +19,12 @@ function init() {
     var aspectRatio = window.innerWidth / window.innerHeight;
     camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 2000);
     camera.position.set(200, 275, 200);
-    camera.lookAt(new THREE.Vector3(0, 200, 0));
+    let targetPoint = new THREE.Vector3(0, 200, 0);
+    camera.lookAt(targetPoint);
     controles = new THREE.OrbitControls(camera, renderer.domElement);
+    controles.target = targetPoint;
+    controles.maxDistance = 350;
+
     // Desactivamos el uso de las flechas para mover la cámara
     controles.noKeys = true;
     keyboard = new THREEx.KeyboardState();
